@@ -49,9 +49,9 @@ void ordenar(struct pilha *stack)
     int i = 0;
     int j = 0;
 
-    for( i = 0; i < stack->pilha; i++ )
+    for( i = 0; i < stack->topo; i++ )
     {
-        for( j = i + 1; j < stack->pilha; j++ )
+        for( j = i + 1; j < stack->topo; j++ )
         {
             if( stack->itens[i] > stack->itens[j] )
             {
