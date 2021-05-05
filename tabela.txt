@@ -1,6 +1,6 @@
 => Lista Linear (Vetor simples)
     - Inserção
-
+        
 
     - Remoção
 
@@ -17,10 +17,13 @@
 
 => Lista encadeada
     - Inserção
-        - Inserção de 250 mil novos registros - 294.354980s (aproximadamente 4,9 minutos)
-        - 
+        - Inserção de 100 novos registros - 0.000065s
+        - Inserção de 10000 novos registros - 0.134144s
+        - Inserção de 250 mil de novos registros - 294.354980s
+        - Inserção de 500 mil de novos registros - 4304.0032s
+        - Inserção de 1M de novos registros - O algoritmo ficou rodando por mais de 2 hora e 52 minutos e foi necessário parar o processo.
     - Remoção
-
+        
 
     - Ordenação (bubble sort)
 
@@ -28,18 +31,29 @@
 
 => Pilha
     - Inserção
-
-
+        - Inserção de 10000 novos registros - 0.000089s
+        - Inserção de 100000 novos registros - 0.001005s
+        - Inserção de 1000000 novos registros - 0.007328s
     - Remoção
-
-
+        - Remoção na pilha de 10000 - 0.000001s
+        - Remoção na pilha de 100000 - 0.000001s
+        - Remoção na pilha de 1000000 - 0.000002s
     - Ordenação (bubble sort)
+        - Ordenação na pilha de 10000 - 0.172613s
+        - Ordenação na pilha de 100000 - 16.744492s
+        - Ordenação na pilha de 1000000 - 2113.908203s
+
 
 => Fila
     - Inserção
-
-
+        - Inserção de 10000 novos registros - 0.000301s
+        - Inserção de 100000 novos registros - 0.003030s
+        - Inserção de 500000 novos registros - 0.012401s
+        - Inserção de 1000000 novos registros - 0.018607s
     - Remoção
+        - Remover um fila de 10000 registros - 0.000123s
+        - Remover um fila de 100000 registros - 0.000763s
+        - Remover um fila de 500000 registros - 0.002760s
+        - Remover um fila de 1000000 registros - 0.001987s
 
-
-    - Ordenação (bubble sort)
+    - Ordenação 

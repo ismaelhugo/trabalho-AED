@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
-#define CAPACIDADE 1000
+#define CAPACIDADE 1000000
 
 struct fila
 {
@@ -16,7 +17,7 @@ int r;
 //Função necessária para criar uma fila vazia consistente
 // Por convenção fila vazia tem o início e fim
 // como sendo iguais a -1
-void iniciaFila(struct fila *f)
+void inicia(struct fila *f)
 {
 	f->inicio = -1;
 	f->fim = -1;
@@ -53,7 +54,7 @@ int inserir(struct fila *f, int x)
 	if (prov != f->inicio)
 	{					  // Verifica se a fila não está cheia
 		f->fim = prov;	  // Atualiza o fim da fila
-		f->a[f->fim] = x; // Insere o novo elemento no nobo fim
+		f->a[f->fim] = x; // Insere o novo elemento no fim
 		if (f->inicio == -1)
 		{ // Ajuste caso a fila esteja inicialmente vazia
 			f->inicio = 0;
@@ -101,7 +102,7 @@ int main()
 	printf("1 - Inserir\n");
 	printf("2 - Remover\n");
 	scanf("%d", &opcao);
-	iniciaFila(&queue);
+	inicia(&queue);
 
 	switch (opcao)
 	{
@@ -109,17 +110,31 @@ int main()
 		clock_inicial = clock();
 		for (int i = CAPACIDADE; i > 0; i--)
 		{
-			r = inserir(&queue, rand() % CAPACIDADE);
+			inserir(&queue, rand() % CAPACIDADE);
 		}
 		clock_final = clock();
 		printf("Tempo decorrido: %lfs. \n", ((float)(clock_final - clock_inicial) / CLOCKS_PER_SEC));
-		printf("retorno %d\n", r);
 		break;
 	case 2:
+
+		printf("Inserindo... %d\n", r); //Insere para ter algo para remover
+		for (int i = CAPACIDADE; i > 0; i--)
+		{
+			inserir(&queue, rand() % CAPACIDADE);
+		}
+
+		int size = fimFila(queue); //salva o tamanho da fila
+
+		printf("Iniciando remocao. Aguarde... %d\n", r);
+
 		clock_inicial = clock();
-		r = remover(&queue);
+		for (int i = 0; i < size; i++)
+		{
+			remover(&queue);
+		}
 		clock_final = clock();
-		printf("O valor removido foi %d\n", r);
+
+		printf("Tempo decorrido para remover: %lfs. \n", ((float)(clock_final - clock_inicial) / CLOCKS_PER_SEC));
 		break;
 	}
 
