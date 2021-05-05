@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 #define CAPACIDADE 1000
 
@@ -36,7 +37,7 @@ int inicioFila(struct fila f)
 	return f.a[f.inicio];
 }
 
-//Função que retorno o elemento no fim da fila sem removê-lo
+//Função que retorna o elemento no fim da fila sem removê-lo
 int fimFila(struct fila f)
 {
 	return f.a[f.fim];
@@ -91,25 +92,10 @@ int remover(struct fila *f)
 	}
 }
 
-// void ordenar(int numeros[], int tam)
-// {
-//     int i, j, num;
-//     for (i = 1; i < tam; i++)
-//     {
-//         num = numeros[i];
-//         j = i - 1;
-//         while ((j >= 0) && (num < numeros[j]))
-//         {
-//             numeros[j + 1] = numeros[j];
-//             j--;
-//         }
-//         numeros[j + 1] = num;
-//     }
-// }
-
 int main()
 {
 	struct fila queue;
+	clock_t clock_inicial, clock_final;
 
 	printf("Digite o valor referente a opcao\n");
 	printf("1 - Inserir\n");
@@ -120,20 +106,19 @@ int main()
 	switch (opcao)
 	{
 	case 1:
+		clock_inicial = clock();
 		for (int i = CAPACIDADE; i > 0; i--)
 		{
 			r = inserir(&queue, rand() % CAPACIDADE);
 		}
-
+		clock_final = clock();
+		printf("Tempo decorrido: %lfs. \n", ((float)(clock_final - clock_inicial) / CLOCKS_PER_SEC));
 		printf("retorno %d\n", r);
 		break;
 	case 2:
+		clock_inicial = clock();
 		r = remover(&queue);
-		printf("O valor removido foi %d\n", r);
-		break;
-	
-	case 3:
-		r = ordenar(&queue);
+		clock_final = clock();
 		printf("O valor removido foi %d\n", r);
 		break;
 	}

@@ -67,7 +67,7 @@ int main() {
     FILE *arq;
     clock_t clock_inicial, clock_final;
     int *lista;
-    int contador, valor_a_inserir;
+    int counter, valor;
     long int numero;
     int menu;
     int r;
@@ -77,10 +77,10 @@ int main() {
 
     // leitura dos dados em disco (arquivo) para um vetor
     arq = fopen("lista.txt", "r");
-    contador = 0;
-    while (fscanf(arq, "%ld", &numero) > 0) {
-        lista[contador] = numero;
-	    contador++;
+    counter = 0;
+    while (fscanf(arq, "%ld", &numero) > 0) { //f
+        lista[counter] = numero;
+	    counter++;
     }
     fclose(arq);
     // fecha o arquivo ao fim da leitura
@@ -94,37 +94,37 @@ int main() {
 
     switch(menu){
         case 1:
+            
             printf("Digite um numero para inserir: ");
-            scanf("%d", &valor_a_inserir);
-
+            scanf("%d", &valor);
 
             clock_inicial = clock();
-            inserir(lista, contador, 1000000, valor_a_inserir);
+            inserir(lista, counter, 1000000, valor);
             clock_final = clock();
             printf("Tempo decorrido: %lfs. \n", ((float)(clock_final - clock_inicial) / CLOCKS_PER_SEC));
             break;
         case 2:
-            printf("Digite um numero para inserir: ");
-            scanf("%d", & valor_a_inserir);
+            printf("Digite um numero para buscar: ");
+            scanf("%d", & valor);
 
 
             clock_inicial = clock();
-            r = buscar(lista, contador, valor_a_inserir);
+            r = buscar(lista, counter, valor);
             printf("Valor encontrado em %d.\n", r + 1);
             clock_final = clock();
             printf("Tempo decorrido: %lfs. \n", ((float)(clock_final - clock_inicial) / CLOCKS_PER_SEC));
             break;
         case 3:
             printf("Digite um numero para remover: ");
-            scanf("%d", &valor_a_inserir);
+            scanf("%d", &valor);
             clock_inicial = clock();
-            r = remover(lista, contador, valor_a_inserir);
+            r = remover(lista, counter, valor);
             clock_final = clock();
             printf("Tempo decorrido: %lfs. \n", ((float)(clock_final - clock_inicial) / CLOCKS_PER_SEC));
             break;
         case 4:
             clock_inicial = clock();
-            r = ordenar(lista, contador);
+            r = ordenar(lista, counter);
             clock_final = clock();
             printf("Tempo decorrido: %lfs. \n", ((float)(clock_final - clock_inicial) / CLOCKS_PER_SEC));
             break;

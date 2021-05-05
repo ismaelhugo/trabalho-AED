@@ -1,0 +1,45 @@
+=> Lista Linear (Vetor simples)
+    - Inserção
+
+
+    - Remoção
+
+
+    - Busca
+
+
+    - Ordenação (bubble sort)
+
+
+
+    - Ordenação (Insertion sort)
+
+
+=> Lista encadeada
+    - Inserção
+        - Inserção de 250 mil novos registros - 294.354980s (aproximadamente 4,9 minutos)
+        - 
+    - Remoção
+
+
+    - Ordenação (bubble sort)
+
+
+
+=> Pilha
+    - Inserção
+
+
+    - Remoção
+
+
+    - Ordenação (bubble sort)
+
+=> Fila
+    - Inserção
+
+
+    - Remoção
+
+
+    - Ordenação (bubble sort)
